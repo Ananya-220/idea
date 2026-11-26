@@ -26,7 +26,7 @@ class IdeaController extends Controller
 
         $ideas = $user
             ->ideas()
-            ->when($status, fn ($query, $status) => $query->where('status', $status))
+            ->when($status, fn($query, $status) => $query->where('status', $status))
             ->get();
 
         return view('idea.index', [
@@ -56,7 +56,9 @@ class IdeaController extends Controller
      */
     public function show(Idea $idea)
     {
-        //
+        return view('idea.show', [
+            'idea' => $idea
+        ]);
     }
 
     /**
@@ -78,8 +80,10 @@ class IdeaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Idea $idea)
+    public function destroy(Idea $idea) 
     {
-        //
+        $idea->delete();
+
+        return to_route('idea.index');
     }
 }
