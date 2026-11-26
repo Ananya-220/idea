@@ -16,20 +16,20 @@ class RegisteredUserController extends Controller
 
     public function store(Request $request)
     {
-        $request -> validate([
-            'name' => ['required' , 'string' , 'min:3' , 'max:255'] , 
-            'email' => ['required' , 'string' , 'email' , 'max:255' , Rule::unique('users' , 'email')] , 
-            'password' => ['required' , 'string' , 'min:3' , 'max:255']
+        $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')],
+            'password' => ['required', 'string', 'min:3', 'max:255'],
         ]);
 
         $user = User::create([
-            'name' => $request -> name , 
-            'email' => $request -> email , 
-            'password' => $request -> password
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
         Auth::login($user);
 
-        return redirect('/') -> with('success' , 'Registration Complete !');
+        return redirect('/')->with('success', 'Registration Complete !');
     }
 }

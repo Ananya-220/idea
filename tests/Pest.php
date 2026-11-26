@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 pest()->extend(TestCase::class)
     ->use(RefreshDatabase::class)
-    ->in('Browser' , 'Unit');
+    ->in('Browser', 'Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ pest()->extend(TestCase::class)
 |
 */
 
-expect()->extend('toBeOne', fn() => $this->toBe(1));
+expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
 |--------------------------------------------------------------------------
