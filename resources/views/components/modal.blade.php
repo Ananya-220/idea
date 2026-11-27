@@ -20,7 +20,7 @@
     :aria-hidden="!show"
     tabindex="-1">
 
-    <x-card @click.away="show = false" class="shadow-xl max-w-2xl w-full max-h-screen overflow-auto">
+    <x-card @click.away="show = false" class="shadow-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto">
 
         <div class="flex justify-between items-center">
 
