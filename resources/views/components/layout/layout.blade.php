@@ -13,7 +13,7 @@
 
     <x-layout.nav />
 
-    <main class="max-w-7xl ms-auto px-6">
+    <main class="max-w-7xl mx-auto px-6">
 
         {{ $slot }}
 
