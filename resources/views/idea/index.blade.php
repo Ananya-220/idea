@@ -175,7 +175,7 @@
 
                                 <div class="flex gap-x-2 items-center">
 
-                                    <input name="steps[]" x-model="step" class="input" readonly>
+                                    <input name="steps[]" :value="step" class="input" readonly>
 
                                     <button
                                         type="button"

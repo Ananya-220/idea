@@ -6,6 +6,7 @@ use App\IdeaStatus;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class StoreIdeaRequest extends FormRequest
 {
@@ -15,6 +16,15 @@ class StoreIdeaRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $image = $this->files->get('image');
+
+        if ($image instanceof UploadedFile && $image->getClientOriginalName() === '') {
+            $this->files->remove('image');
+        }
     }
 
     /**
