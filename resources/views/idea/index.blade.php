@@ -285,7 +285,7 @@
 
                         <button type="button" @click="$dispatch('close-modal')">Cancel</button>
 
-                        <button type="submit" class="btn">Create</button>
+                        <button type="submit" class="btn" data-test="create-idea-submit">Create</button>
 
                     </div>
 

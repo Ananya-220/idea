@@ -52,7 +52,7 @@
 
             <div class="mt-2 flex gap-x-3 items-center">
 
-                <x-idea.status-label : status="{{ $idea->status->value }}">
+                <x-idea.status-label status="{{ $idea->status->value }}">
 
                     {{ $idea->status->label() }}
 
@@ -106,7 +106,7 @@
 
             @endif
 
-            @if ($idea->links->count())
+            @if ($idea->links && $idea->links->count())
 
                 <div>
 
